@@ -1,0 +1,36 @@
+//
+// Created by IGOR on 17.06.2023.
+//
+
+#ifndef PLAGIATCITY_TANK_H
+#define PLAGIATCITY_TANK_H
+
+class Tank;
+
+#include "../Objects/CollidableObject.h"
+#include "../Bullets/Bullet.h"
+
+#define TANK_WIDTH 32
+#define TANK_HEIGHT 32
+
+class Tank : public CollidableObject {
+
+    int healthPoints;
+    int reloadTime;
+
+protected:
+
+    std::vector<Bullet*> &bullets;
+
+public:
+
+    Tank(CollisionFlag config, int HP, int reloadTime, float velocity, Type type, std::vector<Bullet*> &b);
+    void move(Facing f);
+    virtual void shoot();
+    void take_hit() override;
+    bool is_alive() const;
+    int get_reloadTime() const;
+};
+
+
+#endif //PLAGIATCITY_TANK_H
