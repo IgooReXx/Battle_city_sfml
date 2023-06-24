@@ -10,7 +10,7 @@
 class PlayerBullet : public Bullet{
 
 public:
-    PlayerBullet(Facing facing, sf::Vector2f position);
+    PlayerBullet(Facing facing, sf::Vector2f position, BulletClass bulletClass);
 };
 
 

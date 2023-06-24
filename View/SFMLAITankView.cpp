@@ -35,7 +35,8 @@ void SFMLAITankView::display()
 {
     for(int indx=0; indx<static_cast<int>(AITanks.size()); indx++)
     {
-        draw_object(AITanks[indx]);
+        if(!AITanks[indx]->is_destroyed())
+            draw_object(AITanks[indx]);
     }
 }
 

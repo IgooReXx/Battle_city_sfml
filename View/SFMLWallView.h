@@ -12,7 +12,7 @@
 class SFMLWallView {
     GameBoard &board;
 
-    std::vector<Wall> &walls;
+    std::vector<Wall*> &walls;
 
     TxSp wallModel;
 

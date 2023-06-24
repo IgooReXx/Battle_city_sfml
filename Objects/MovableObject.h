@@ -41,6 +41,7 @@ public:
     mvObject get_objectParam() const;
     mvObject get_next_objectParam() const;
     void set_status_destroyed();
+    bool is_destroyed();
 
 
 

@@ -21,7 +21,8 @@ void SFMLPlayerTankView::load_TxSp()
 
 void SFMLPlayerTankView::display()
 {
-    draw_object(playerTank);
+    if(!playerTank.is_destroyed())
+        draw_object(playerTank);
 }
 
 void SFMLPlayerTankView::draw_object(PlayerTank tank)

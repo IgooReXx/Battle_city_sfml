@@ -4,9 +4,9 @@
 
 #include "AIBullet.h"
 
-CollisionFlag AIBulletCollisions {true, false, true, false};
+static CollisionFlag AIBulletCollisions {true, false, true, false};
 
-AIBullet::AIBullet(Facing facing, sf::Vector2f position) : Bullet(AIBulletCollisions, facing, position)
+AIBullet::AIBullet(Facing facing, sf::Vector2f position, BulletClass bulletClass) : Bullet(AIBulletCollisions, facing, position, bulletClass)
 {
 
 }

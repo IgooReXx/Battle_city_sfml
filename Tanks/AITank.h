@@ -20,10 +20,8 @@ class AITank : public Tank {
     sf::Clock movementClock;
     sf::Clock reloadClock;
     void AI_logic();
-    void on_wall_collision();
     void set_random_facing();
     void shoot() override;
-    bool wall_collision_detection() const;
 
     sf::Vector2f choose_bullet_position();
 
@@ -31,6 +29,7 @@ public:
     AITank(int HP, int reloadTime, float velocity, TankClass tankClass, std::vector<Bullet*> &bullets, GameBoard &b);
     TankClass get_tankClass();
     void update() override;
+    void on_wall_collision();
 };
 
 

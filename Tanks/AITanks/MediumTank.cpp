@@ -4,7 +4,7 @@
 
 #include "MediumTank.h"
 
-MediumTank::MediumTank(std::vector<Bullet*> &bullets, GameBoard &b) : AITank(2, 200, 0.015, MEDIUM, bullets, b)
+MediumTank::MediumTank(std::vector<Bullet*> &bullets, GameBoard &b) : AITank(2, 1000, 0.015, MEDIUM, bullets, b)
 {
 
 }

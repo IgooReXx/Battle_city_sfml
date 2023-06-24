@@ -10,7 +10,7 @@
 class AIBullet : public Bullet {
 
 public:
-    AIBullet(Facing facing, sf::Vector2f position);
+    AIBullet(Facing facing, sf::Vector2f position, BulletClass bulletClass);
 };
 
 

@@ -87,3 +87,7 @@ void MovableObject::set_status_destroyed()
     objectParam.status = DESTROYED;
 }
 
+bool MovableObject::is_destroyed() {
+    return objectParam.status == DESTROYED;
+}
+

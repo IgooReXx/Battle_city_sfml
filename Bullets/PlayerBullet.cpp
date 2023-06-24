@@ -4,9 +4,9 @@
 
 #include "PlayerBullet.h"
 
-CollisionFlag PlayerBulletCollisions {false, true, true, false};
+static CollisionFlag PlayerBulletCollisions {false, true, true, false};
 
-PlayerBullet::PlayerBullet(Facing facing, sf::Vector2f position) : Bullet(PlayerBulletCollisions, facing, position)
+PlayerBullet::PlayerBullet(Facing facing, sf::Vector2f position, BulletClass bulletClass) : Bullet(PlayerBulletCollisions, facing, position, bulletClass)
 {
 
 }

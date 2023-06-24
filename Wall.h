@@ -11,6 +11,7 @@ class Wall : public CollidableObject {
 
 public:
     Wall();
+    virtual ~Wall();
     void take_hit() override;
 };
 

@@ -11,14 +11,6 @@ CollidableObject( config, v, t, TANK_WIDTH, TANK_HEIGHT), healthPoints(HP), relo
 
 }
 
-void Tank::move(Facing f)
-{
-    if(f != get_objectParam().facing)
-        set_facing(f);
-    else
-        update();
-}
-
 void Tank::shoot()
 {
 
@@ -28,15 +20,17 @@ void Tank::take_hit()
 {
     if(healthPoints > 0)
         healthPoints-=1;
-}
-
-bool Tank::is_alive() const
-{
-    return healthPoints > 0;
+    else
+        set_status_destroyed();
 }
 
 int Tank::get_reloadTime() const {
     return reloadTime;
+}
+
+Tank::~Tank()
+{
+
 }
 
 

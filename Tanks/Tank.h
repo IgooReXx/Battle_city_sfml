@@ -25,10 +25,9 @@ protected:
 public:
 
     Tank(CollisionFlag config, int HP, int reloadTime, float velocity, Type type, std::vector<Bullet*> &b);
-    void move(Facing f);
+    virtual ~Tank();
     virtual void shoot();
     void take_hit() override;
-    bool is_alive() const;
     int get_reloadTime() const;
 };
 

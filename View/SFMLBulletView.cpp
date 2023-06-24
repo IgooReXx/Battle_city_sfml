@@ -23,7 +23,8 @@ void SFMLBulletView::display()
 {
     for(int indx=0; indx<static_cast<int>(bullets.size()); indx++)
     {
-        draw_object(bullets[indx]);
+        if(!bullets[indx]->is_destroyed())
+            draw_object(bullets[indx]);
     }
 }
 

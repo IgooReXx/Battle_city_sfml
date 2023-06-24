@@ -2,6 +2,8 @@
 // Created by IGOR on 17.06.2023.
 //
 
+// inspiracja modelem https://pixelartmaker.com/art/3cb4caf82e372fd
+
 #ifndef PLAGIATCITY_SFMLVIEW_H
 #define PLAGIATCITY_SFMLVIEW_H
 

@@ -4,8 +4,8 @@
 
 #include "Bullet.h"
 
-Bullet::Bullet(CollisionFlag bulletCollisions, Facing facing, sf::Vector2f position) :
-CollidableObject{bulletCollisions, 0.04, BULLET, BULLET_WIDTH, BULLET_HEIGHT}
+Bullet::Bullet(CollisionFlag bulletCollisions, Facing facing, sf::Vector2f position, BulletClass bulletClass) :
+CollidableObject{bulletCollisions, 0.04, BULLET, BULLET_WIDTH, BULLET_HEIGHT}, bulletClass(bulletClass)
 {
     set_facing(facing);
     set_position(position);
@@ -21,15 +21,21 @@ void Bullet::take_hit()
     set_status_destroyed();
 }
 
-void Bullet::check_wall_collison()
+bool Bullet::check_wall_collison(std::vector<Wall>& walls)
 {
-    //for(int indx=0; indx<static_cast<int>(board.get_Walls().size()); indx++)
-    //    {
-    //        if(check_collision(board.get_Walls()[indx]))
-    //            return true;
-    //    }
-    //    return false;
+    for(int indx=0; indx<static_cast<int>(walls.size()); indx++)
+        {
+            if(check_collision(walls[indx]))
+                return true;
+        }
+        return false;
 }
 
+Bullet::~Bullet()
+{
 
+}
 
+BulletClass Bullet::get_bulletClass() {
+    return bulletClass;
+}
