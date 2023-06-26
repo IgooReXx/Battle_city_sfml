@@ -21,7 +21,7 @@ void Bullet::take_hit()
     set_status_destroyed();
 }
 
-bool Bullet::check_wall_collison(std::vector<Wall>& walls)
+bool Bullet::check_wall_collison(std::vector<Wall>& walls) const
 {
     for(int indx=0; indx<static_cast<int>(walls.size()); indx++)
         {
@@ -36,6 +36,7 @@ Bullet::~Bullet()
 
 }
 
-BulletClass Bullet::get_bulletClass() {
+BulletClass Bullet::get_bulletClass() const
+{
     return bulletClass;
 }

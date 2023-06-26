@@ -16,14 +16,14 @@ enum BulletClass {AIBULLET, PLAYERBULLET};
 class Bullet : public CollidableObject {
     BulletClass bulletClass;
     void hitObject(CollidableObject object) const;
-    bool check_wall_collison(std::vector<Wall>& walls);
+    bool check_wall_collison(std::vector<Wall>& walls) const;
 
 public:
 
     Bullet(CollisionFlag bulletCollisions, Facing facing, sf::Vector2f position, BulletClass bulletClass);
     virtual ~Bullet();
     void take_hit() override;
-    BulletClass get_bulletClass();
+    BulletClass get_bulletClass() const;
 };
 
 

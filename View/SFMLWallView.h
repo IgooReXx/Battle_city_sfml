@@ -11,11 +11,8 @@
 
 class SFMLWallView {
     GameBoard &board;
-
     std::vector<Wall*> &walls;
-
     TxSp wallModel;
-
     sf::RenderWindow &win;
 
     void draw_object(Wall &wall);

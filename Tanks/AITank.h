@@ -23,11 +23,11 @@ class AITank : public Tank {
     void set_random_facing();
     void shoot() override;
 
-    sf::Vector2f choose_bullet_position();
+    sf::Vector2f choose_bullet_position() const;
 
 public:
     AITank(int HP, int reloadTime, float velocity, TankClass tankClass, std::vector<Bullet*> &bullets, GameBoard &b);
-    TankClass get_tankClass();
+    TankClass get_tankClass() const;
     void update() override;
     void on_wall_collision();
 };

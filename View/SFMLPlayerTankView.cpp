@@ -27,13 +27,13 @@ void SFMLPlayerTankView::display()
 
 void SFMLPlayerTankView::draw_object(PlayerTank tank)
 {
-    playerTankModel.sp.setOrigin(TANK_WIDTH/2, TANK_HEIGHT/2);
+    playerTankModel.sp.setOrigin(TANK_WIDTH/2.f, TANK_HEIGHT/2.f);
     playerTankModel.sp.setRotation(choose_rotation(tank));
     playerTankModel.sp.setPosition(tank.get_objectParam().object.left + TANK_WIDTH/2,tank.get_objectParam().object.top + TANK_HEIGHT/2);
     win.draw(playerTankModel.sp);
 }
 
-int SFMLPlayerTankView::choose_rotation(PlayerTank tank)
+int SFMLPlayerTankView::choose_rotation(PlayerTank tank) const
 {
     int rotation;
     switch (tank.get_objectParam().facing)

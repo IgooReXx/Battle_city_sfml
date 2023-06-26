@@ -5,14 +5,11 @@
 #include "chrono"
 
 int main() {
+    srand(time(0));
 
     sf::RenderWindow win(sf::VideoMode(800, 600), "PlagiatCity");
     GameBoard board;
-    SFMLAITankView AITankView(board, win);
-    SFMLPlayerTankView playerTankView(board, win);
-    SFMLBulletView bulletView(board, win);
-    SFMLWallView wallView(board, win);
-    SFMLView view(board, AITankView, playerTankView, bulletView, wallView);
+    SFMLView view(board, win);
     PlayerTankController ctrl(board.get_Player());
 
 

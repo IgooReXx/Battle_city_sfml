@@ -21,7 +21,7 @@ void SFMLWallView::load_TxSp()
 
 void SFMLWallView::display()
 {
-    for(int indx=1; indx < static_cast<int>(board.get_Walls().size()); indx++)
+    for(int indx=0; indx < static_cast<int>(board.get_Walls().size()); indx++)
     {
         if(!walls[indx]->is_destroyed())
         draw_object(*walls[indx]);

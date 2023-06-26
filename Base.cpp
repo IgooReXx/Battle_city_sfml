@@ -4,7 +4,7 @@
 
 #include "Base.h"
 
-Base::Base() : Wall()
+Base::Base() : Wall(BASE)
 {
 
 }

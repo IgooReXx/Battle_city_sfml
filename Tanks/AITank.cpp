@@ -16,12 +16,29 @@ AITank::AITank(int HP, int reloadTime, float velocity, TankClass tankClass, std:
 
 void AITank::on_wall_collision()
 {
+    sf::Vector2f position;
+    switch(get_objectParam().facing)
+    {
+        case UP:
+            position = {get_objectParam().object.left, get_objectParam().object.top + get_objectParam().velocity};
+            break;
+        case LEFT:
+            position = {get_objectParam().object.left + get_objectParam().velocity, get_objectParam().object.top};
+            break;
+        case RIGHT:
+            position = {get_objectParam().object.left - get_objectParam().velocity, get_objectParam().object.top};
+            break;
+        case DOWN:
+            position = {get_objectParam().object.left, get_objectParam().object.top - get_objectParam().velocity};
+            break;
+    }
+    set_position(position);
     set_random_facing();
 }
 
 void AITank::AI_logic()
 {
-    if(movementClock.getElapsedTime() >= sf::milliseconds(1500))
+    if(movementClock.getElapsedTime() >= sf::milliseconds(rand()%3000+1500))
     {
         set_random_facing();
         movementClock.restart();
@@ -47,7 +64,7 @@ void AITank::shoot()
     bullets.push_back(new AIBullet(get_objectParam().facing, choose_bullet_position(), AIBULLET));
 }
 
-sf::Vector2f AITank::choose_bullet_position()
+sf::Vector2f AITank::choose_bullet_position() const
 {
     float centreWidth = get_objectParam().object.left+get_objectParam().object.width/2;
     float centreHeight= get_objectParam().object.top+get_objectParam().object.height/2;
@@ -67,7 +84,7 @@ sf::Vector2f AITank::choose_bullet_position()
     return {-1, -1};
 }
 
-TankClass AITank::get_tankClass()
+TankClass AITank::get_tankClass() const
 {
     return tankClass;
 }

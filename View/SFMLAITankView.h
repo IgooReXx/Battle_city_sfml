@@ -22,7 +22,7 @@ class SFMLAITankView {
 
     void draw_object(AITank* tank);
     void load_TxSp();
-    int choose_rotation(AITank* tank);
+    int choose_rotation(AITank* tank) const;
     TxSp &choose_model(AITank* tank);
 public:
     SFMLAITankView(GameBoard &b, sf::RenderWindow &w);

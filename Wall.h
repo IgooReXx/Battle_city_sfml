@@ -7,12 +7,15 @@
 
 #include "./Objects/CollidableObject.h"
 
-class Wall : public CollidableObject {
+enum WallClass {REGULAR, BASE};
 
+class Wall : public CollidableObject {
+    WallClass wallClass;
 public:
-    Wall();
+    Wall(WallClass wc);
     virtual ~Wall();
     void take_hit() override;
+    WallClass get_wallClass() const;
 };
 
 

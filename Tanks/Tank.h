@@ -10,8 +10,8 @@ class Tank;
 #include "../Objects/CollidableObject.h"
 #include "../Bullets/Bullet.h"
 
-#define TANK_WIDTH 32
-#define TANK_HEIGHT 32
+#define TANK_WIDTH 31
+#define TANK_HEIGHT 31
 
 class Tank : public CollidableObject {
 
@@ -29,6 +29,7 @@ public:
     virtual void shoot();
     void take_hit() override;
     int get_reloadTime() const;
+    int get_HP() const;
 };
 
 

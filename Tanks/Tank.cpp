@@ -33,4 +33,8 @@ Tank::~Tank()
 
 }
 
+int Tank::get_HP() const {
+    return healthPoints;
+}
+
 

@@ -43,13 +43,13 @@ void SFMLAITankView::display()
 void SFMLAITankView::draw_object(AITank* tank)
 {
     TxSp *model = &choose_model(tank);
-    model->sp.setOrigin(TANK_WIDTH/2, TANK_HEIGHT/2);
+    model->sp.setOrigin(TANK_WIDTH/2.f, TANK_HEIGHT/2.f);
     model->sp.setRotation(choose_rotation(tank));
     model->sp.setPosition(tank->get_objectParam().object.left + TANK_WIDTH/2,tank->get_objectParam().object.top + TANK_HEIGHT/2);
     win.draw(model->sp);
 }
 
-int SFMLAITankView::choose_rotation(AITank *tank)
+int SFMLAITankView::choose_rotation(AITank *tank) const
 {
     int rotation;
     switch (tank->get_objectParam().facing)

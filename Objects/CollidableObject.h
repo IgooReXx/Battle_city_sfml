@@ -7,6 +7,12 @@
 
 #include "MovableObject.h"
 
+#define PA_LEFT 224
+#define PA_RIGHT 576
+#define PA_TOP 124
+#define PA_BOTTOM 476
+
+
 struct CollisionFlag {
     bool hasPlayerTankCollison;
     bool hasAITankCollision;

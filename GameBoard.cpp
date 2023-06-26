@@ -11,19 +11,19 @@
 
 GameBoard::GameBoard() : status(RUNNING), player(bullets)
 {
-    AITank *test = new LightTank(get_bullets(), *this); std::cerr << "Usun potem";
-    AITanks.push_back(test);
-    test = new MediumTank(get_bullets(), *this);
-    AITanks.push_back(test);
-    test = new HeavyTank(get_bullets(), *this);
-    AITanks.push_back(test);
+    player.set_position({384, 380});
+    spawnCounter=0;
+    base = new Base();
+    place_walls();
 }
 
-PlayerTank &GameBoard::get_Player() {
+PlayerTank &GameBoard::get_Player()
+{
     return player;
 }
 
-std::vector<Bullet *> &GameBoard::get_bullets() {
+std::vector<Bullet *> &GameBoard::get_bullets()
+{
     return bullets;
 }
 
@@ -34,6 +34,7 @@ std::vector<AITank*> &GameBoard::get_AITanks()
 
 void GameBoard::update()
 {
+    spawn_AITanks();
     collision_logic();
     for(int indx=0; indx<static_cast<int>(AITanks.size()); indx++)
     {
@@ -44,13 +45,12 @@ void GameBoard::update()
     {
         bullets[indx]->update();
     }
-    bullets_cleanup();
-    AITanks_cleanup();
-    walls_cleanup();
+    moja_pokuta_za_niezrobienie_GameBoarda_singletonem();
     check_win_condition();
 }
 
-std::vector<Wall*> &GameBoard::get_Walls() {
+std::vector<Wall*> &GameBoard::get_Walls()
+{
     return walls;
 }
 
@@ -115,6 +115,10 @@ void GameBoard::player_collisions()
             player.take_hit();
         }
     }
+    if(player.check_collision(*base))
+    {
+        player.on_wall_collision();
+    }
 }
 
 void GameBoard::AITanks_collisions()
@@ -138,6 +142,10 @@ void GameBoard::AITanks_collisions()
                 bullets[bulletsIndx]->take_hit();
             }
         }
+        if(AITanks[AITanksIndx]->check_collision(*base))
+        {
+            AITanks[AITanksIndx]->on_wall_collision();
+        }
     }
 }
 
@@ -157,12 +165,17 @@ void GameBoard::bullets_collision()
         {
             bullets[bulletIndx]->take_hit();
         }
+        if(bullets[bulletIndx]->check_collision(*base) and bullets[bulletIndx]->get_bulletClass() != PLAYERBULLET)
+        {
+            bullets[bulletIndx]->take_hit();
+            base->take_hit();
+        }
     }
 }
 
 void GameBoard::check_win_condition()
 {
-    if(walls.size() != 0 && walls[0]->is_destroyed())
+    if(base->is_destroyed())
     {
         status = LOST;
     }
@@ -170,7 +183,7 @@ void GameBoard::check_win_condition()
     {
         status = LOST;
     }
-    if(AITanks.size() == 0)
+    if(spawnCounter >= 10 and AITanks.empty())
     {
         status = WON;
     }
@@ -179,4 +192,82 @@ void GameBoard::check_win_condition()
 GameStatus GameBoard::get_status() const
 {
     return status;
+}
+
+void GameBoard::place_walls()
+{
+    base->set_position({384, 444});
+    walls.push_back((new Wall(REGULAR)));
+    walls[0]->set_position({352, 444});
+    walls.push_back((new Wall(REGULAR)));
+    walls[1]->set_position({416, 444});
+    walls.push_back((new Wall(REGULAR)));
+    walls[2]->set_position({384, 412});
+    walls.push_back((new Wall(REGULAR)));
+    walls[3]->set_position({256, 156});
+    walls.push_back((new Wall(REGULAR)));
+    walls[4]->set_position({288, 156});
+    walls.push_back((new Wall(REGULAR)));
+    walls[5]->set_position({512, 156});
+    walls.push_back((new Wall(REGULAR)));
+    walls[6]->set_position({480, 156});
+    walls.push_back((new Wall(REGULAR)));
+    walls[7]->set_position({256, 444});
+    walls.push_back((new Wall(REGULAR)));
+    walls[8]->set_position({288, 444});
+    walls.push_back((new Wall(REGULAR)));
+    walls[9]->set_position({512, 444});
+    walls.push_back((new Wall(REGULAR)));
+    walls[10]->set_position({480, 444});
+
+}
+
+Wall *GameBoard::get_base() {
+    return base;
+}
+
+void GameBoard::spawn_AITanks()
+{
+    AITank* spawnedTank;
+    if(spawnTimer.getElapsedTime() >= sf::seconds(10))
+    {
+        if(spawnCounter < 10)
+        {
+            switch (spawnCounter)
+            {
+                case 0:
+                case 2:
+                case 7:
+                    spawnedTank = new LightTank(get_bullets(), *this);
+                    break;
+                case 1:
+                case 3:
+                case 4:
+                case 9:
+                    spawnedTank = new MediumTank(get_bullets(), *this);
+                    break;
+                case 5:
+                case 6:
+                case 8:
+                    spawnedTank = new HeavyTank(get_bullets(), *this);
+                    break;
+            }
+            if(spawnCounter % 2 == 0)
+                spawnedTank->set_position({224, 124});
+            else
+                spawnedTank->set_position({544, 124});
+
+            AITanks.push_back(spawnedTank);
+            spawnCounter++;
+            spawnTimer.restart();
+        }
+    }
+
+}
+
+void GameBoard::moja_pokuta_za_niezrobienie_GameBoarda_singletonem()
+{
+    bullets_cleanup();
+    AITanks_cleanup();
+    walls_cleanup();
 }

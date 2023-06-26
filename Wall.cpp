@@ -6,7 +6,7 @@
 
 static CollisionFlag wallCollisions {true, true, false, true};
 
-Wall::Wall() : CollidableObject(wallCollisions, 0, WALL, 32, 32)
+Wall::Wall(WallClass wc) : CollidableObject(wallCollisions, 0, WALL, 32, 32), wallClass(wc)
 {
 
 }
@@ -19,4 +19,9 @@ void Wall::take_hit()
 Wall::~Wall()
 {
 
+}
+
+WallClass Wall::get_wallClass() const
+{
+    return wallClass;
 }

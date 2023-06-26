@@ -16,6 +16,7 @@ class GameBoard; // Loop include'ów rozwiązany z pomocą kolegi
 #include "./Bullets/PlayerBullet.h"
 
 #include "Wall.h"
+#include "Base.h"
 
 enum GameStatus {WON, LOST, RUNNING};
 
@@ -26,12 +27,15 @@ class GameBoard {
     std::vector<Bullet*> bullets;
     PlayerTank player;
     std::vector<AITank*> AITanks;
+    sf::Clock spawnTimer;
+    int spawnCounter;
     std::vector<Wall*> walls = {};
+    Wall* base;
 
     void bullets_cleanup();
     void AITanks_cleanup();
     void walls_cleanup();
-
+    void moja_pokuta_za_niezrobienie_GameBoarda_singletonem();
 
 
     void collision_logic();
@@ -41,6 +45,9 @@ class GameBoard {
 
     void check_win_condition();
 
+    void place_walls();
+    void spawn_AITanks();
+
 public:
     GameBoard();
     void update();
@@ -49,6 +56,7 @@ public:
     std::vector<AITank*> &get_AITanks();
     std::vector<Wall*> &get_Walls();
     GameStatus get_status() const;
+    Wall* get_base();
 };
 
 

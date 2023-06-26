@@ -20,7 +20,7 @@ class SFMLPlayerTankView {
 
     void draw_object(PlayerTank tank);
     void load_TxSp();
-    int choose_rotation(PlayerTank tank);
+    int choose_rotation(PlayerTank tank) const;
 
 public:
     SFMLPlayerTankView(GameBoard &b, sf::RenderWindow &w);

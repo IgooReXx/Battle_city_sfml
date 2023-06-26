@@ -12,16 +12,19 @@
 #include "SFMLPlayerTankView.h"
 #include "SFMLBulletView.h"
 #include "SFMLWallView.h"
+#include "SFMLBaseView.h"
+#include "SFMLBackgroundView.h"
 
 class SFMLView {
-    GameBoard &board;
 
-    SFMLAITankView &AITankView;
-    SFMLPlayerTankView &playerTankView;
-    SFMLBulletView &bulletView;
-    SFMLWallView &wallView;
+    SFMLAITankView AITankView;
+    SFMLPlayerTankView playerTankView;
+    SFMLBulletView bulletView;
+    SFMLWallView wallView;
+    SFMLBaseView baseView;
+    SFMLBackgroundView backgroundView;
 public:
-    explicit SFMLView(GameBoard &b, SFMLAITankView &AIv, SFMLPlayerTankView &Pv, SFMLBulletView &Bv, SFMLWallView &Wv);
+    explicit SFMLView(GameBoard &b, sf::RenderWindow &win);
     void draw();
 };
 

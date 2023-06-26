@@ -10,14 +10,19 @@ class PlayerTank;
 
 
 class PlayerTank : public Tank{
+
     sf::Clock reloadClock;
+
+    sf::Vector2f choose_bullet_position() const;
+
 public:
+
     explicit PlayerTank(std::vector<Bullet*> &bullets);
     void update() override;
     void on_wall_collision();
     void shoot() override;
 
-    sf::Vector2f choose_bullet_position();
+
 };
 
 

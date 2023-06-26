@@ -46,7 +46,7 @@ void PlayerTank::shoot()
     }
 }
 
-sf::Vector2f PlayerTank::choose_bullet_position()
+sf::Vector2f PlayerTank::choose_bullet_position() const
 {
     float centreWidth = get_objectParam().object.left+get_objectParam().object.width/2;
     float centreHeight= get_objectParam().object.top+get_objectParam().object.height/2;
