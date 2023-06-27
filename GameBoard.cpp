@@ -9,7 +9,7 @@
 #include "./Tanks/AITanks/MediumTank.h"
 #include "./Tanks/AITanks/HeavyTank.h"
 
-GameBoard::GameBoard() : status(RUNNING), player(bullets)
+GameBoard::GameBoard() : status(MENU), player(bullets)
 {
     player.set_position({384, 380});
     spawnCounter=0;
@@ -45,7 +45,7 @@ void GameBoard::update()
     {
         bullets[indx]->update();
     }
-    moja_pokuta_za_niezrobienie_GameBoarda_singletonem();
+    garbage_collector();
     check_win_condition();
 }
 
@@ -265,9 +265,14 @@ void GameBoard::spawn_AITanks()
 
 }
 
-void GameBoard::moja_pokuta_za_niezrobienie_GameBoarda_singletonem()
+void GameBoard::garbage_collector()
 {
     bullets_cleanup();
     AITanks_cleanup();
     walls_cleanup();
+}
+
+void GameBoard::set_status_RUNNING()
+{
+    status = RUNNING;
 }

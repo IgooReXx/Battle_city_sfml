@@ -2,7 +2,7 @@
 #include "GameBoard.h"
 #include "View/SFMLView.h"
 #include "Controllers/PlayerTankController.h"
-#include "chrono"
+#include "Controllers/MenuController.h"
 
 int main() {
     srand(time(0));
@@ -11,6 +11,7 @@ int main() {
     GameBoard board;
     SFMLView view(board, win);
     PlayerTankController ctrl(board.get_Player());
+    MenuController menu(board, view.get_menuView());
 
 
     while (win.isOpen())
@@ -20,6 +21,10 @@ int main() {
         {
             if (event.type == sf::Event::Closed)
                 win.close();
+        }
+        if(board.get_status() == MENU)
+        {
+            menu.menuControls(event);
         }
         if(board.get_status() == RUNNING)
         {

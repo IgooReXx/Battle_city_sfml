@@ -8,14 +8,19 @@
 #define PLAGIATCITY_SFMLVIEW_H
 
 #include "../GameBoard.h"
+
 #include "SFMLAITankView.h"
 #include "SFMLPlayerTankView.h"
 #include "SFMLBulletView.h"
 #include "SFMLWallView.h"
 #include "SFMLBaseView.h"
 #include "SFMLBackgroundView.h"
+#include "SFMLMenuView.h"
+#include "SFMLGameOverView.h"
 
 class SFMLView {
+
+    GameBoard &board;
 
     SFMLAITankView AITankView;
     SFMLPlayerTankView playerTankView;
@@ -23,9 +28,13 @@ class SFMLView {
     SFMLWallView wallView;
     SFMLBaseView baseView;
     SFMLBackgroundView backgroundView;
+    SFMLMenuView menuView;
+    SFMLGameOverView gameOverView;
+
 public:
     explicit SFMLView(GameBoard &b, sf::RenderWindow &win);
     void draw();
+    SFMLMenuView &get_menuView();
 };
 
 

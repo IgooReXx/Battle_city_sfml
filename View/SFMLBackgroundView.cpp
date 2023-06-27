@@ -50,7 +50,7 @@ void SFMLBackgroundView::draw_player_HP()
 {
     bool doubleDigits = false;
     int HP = board.get_Player().get_HP();
-    if(HP > 10)
+    if(HP >= 10)
         doubleDigits = true;
     sf::Text playerHP;
     playerHP.setFont(font);

@@ -18,7 +18,7 @@ void Tank::shoot()
 
 void Tank::take_hit()
 {
-    if(healthPoints > 0)
+    if(healthPoints > 1)
         healthPoints-=1;
     else
         set_status_destroyed();

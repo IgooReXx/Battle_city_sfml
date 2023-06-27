@@ -18,7 +18,7 @@ class GameBoard; // Loop include'ów rozwiązany z pomocą kolegi
 #include "Wall.h"
 #include "Base.h"
 
-enum GameStatus {WON, LOST, RUNNING};
+enum GameStatus {WON, LOST, RUNNING, MENU};
 
 class GameBoard {
 
@@ -35,7 +35,7 @@ class GameBoard {
     void bullets_cleanup();
     void AITanks_cleanup();
     void walls_cleanup();
-    void moja_pokuta_za_niezrobienie_GameBoarda_singletonem();
+    void garbage_collector();
 
 
     void collision_logic();
@@ -57,6 +57,7 @@ public:
     std::vector<Wall*> &get_Walls();
     GameStatus get_status() const;
     Wall* get_base();
+    void set_status_RUNNING();
 };
 
 
