@@ -3,7 +3,6 @@
 //
 
 #include "SFMLBackgroundView.h"
-#include "iostream"
 
 SFMLBackgroundView::SFMLBackgroundView(GameBoard &b, sf::RenderWindow &w) : board(b), win(w)
 {

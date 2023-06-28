@@ -1,9 +1,10 @@
 //
 // Created by IGOR on 17.06.2023.
 //
-#include <iostream>
+
 #include "PlayerTank.h"
 #include "../Bullets/PlayerBullet.h"
+
 static CollisionFlag playerTankCollisions {false, false, true, true};
 
 PlayerTank::PlayerTank(std::vector<Bullet*> &bullets) : Tank(playerTankCollisions, 20, 500, 0, PLAYERTANK, bullets)

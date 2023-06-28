@@ -3,7 +3,6 @@
 //
 
 #include "SFMLAITankView.h"
-#include <iostream>
 
 SFMLAITankView::SFMLAITankView(GameBoard &b, sf::RenderWindow &w) : board(b), AITanks(b.get_AITanks()), win(w)
 {
@@ -13,17 +12,17 @@ SFMLAITankView::SFMLAITankView(GameBoard &b, sf::RenderWindow &w) : board(b), AI
 void SFMLAITankView::load_TxSp()
 {
 
-    if (!lightTankModel.tx.loadFromFile("../textures/LightTank.png", sf::IntRect(0, 0, TANK_WIDTH, TANK_HEIGHT)))
+    if (!lightTankModel.tx.loadFromFile("../textures/LightTank.png", sf::IntRect(1, 1, TANK_WIDTH, TANK_HEIGHT)))
     {
         exit(1);
     }
     lightTankModel.sp.setTexture(lightTankModel.tx);
-    if (!mediumTankModel.tx.loadFromFile("../textures/MediumTank.png", sf::IntRect(0, 0, TANK_WIDTH, TANK_HEIGHT)))
+    if (!mediumTankModel.tx.loadFromFile("../textures/MediumTank.png", sf::IntRect(1, 1, TANK_WIDTH, TANK_HEIGHT)))
     {
         exit(1);
     }
     mediumTankModel.sp.setTexture(mediumTankModel.tx);
-    if(!heavyTankModel.tx.loadFromFile("../textures/HeavyTank.png", sf::IntRect(0, 0, TANK_WIDTH, TANK_HEIGHT)))
+    if(!heavyTankModel.tx.loadFromFile("../textures/HeavyTank.png", sf::IntRect(1, 1, TANK_WIDTH, TANK_HEIGHT)))
     {
         exit(1);
     }

@@ -46,6 +46,9 @@ class GameBoard {
     void check_win_condition();
 
     void place_walls();
+    void place_small_wall(float x_pos, float y_pos);
+    void place_big_wall(float x_pos, float y_pos);
+
     void spawn_AITanks();
 
 public:

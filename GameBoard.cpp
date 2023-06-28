@@ -3,7 +3,6 @@
 //
 
 #include "GameBoard.h"
-#include "iostream"
 
 #include "./Tanks/AITanks/LightTank.h"
 #include "./Tanks/AITanks/MediumTank.h"
@@ -194,31 +193,40 @@ GameStatus GameBoard::get_status() const
     return status;
 }
 
+void GameBoard::place_big_wall(float x_pos, float y_pos)
+{
+    place_small_wall(x_pos, y_pos);
+    place_small_wall(x_pos+WALL_WIDTH, y_pos);
+    place_small_wall(x_pos, y_pos+WALL_HEIGHT);
+    place_small_wall(x_pos+WALL_WIDTH, y_pos+WALL_HEIGHT);
+}
+
+void GameBoard::place_small_wall(float x_pos, float y_pos)
+{
+    Wall* tmp = new Wall(REGULAR, {WALL_WIDTH, WALL_HEIGHT});
+    tmp->set_position({x_pos, y_pos});
+    walls.push_back(tmp);
+}
+
 void GameBoard::place_walls()
 {
-    base->set_position({384, 444});
-    walls.push_back((new Wall(REGULAR)));
-    walls[0]->set_position({352, 444});
-    walls.push_back((new Wall(REGULAR)));
-    walls[1]->set_position({416, 444});
-    walls.push_back((new Wall(REGULAR)));
-    walls[2]->set_position({384, 412});
-    walls.push_back((new Wall(REGULAR)));
-    walls[3]->set_position({256, 156});
-    walls.push_back((new Wall(REGULAR)));
-    walls[4]->set_position({288, 156});
-    walls.push_back((new Wall(REGULAR)));
-    walls[5]->set_position({512, 156});
-    walls.push_back((new Wall(REGULAR)));
-    walls[6]->set_position({480, 156});
-    walls.push_back((new Wall(REGULAR)));
-    walls[7]->set_position({256, 444});
-    walls.push_back((new Wall(REGULAR)));
-    walls[8]->set_position({288, 444});
-    walls.push_back((new Wall(REGULAR)));
-    walls[9]->set_position({512, 444});
-    walls.push_back((new Wall(REGULAR)));
-    walls[10]->set_position({480, 444});
+    base->set_position({386, 444});
+
+    place_big_wall(354, 444);
+    place_big_wall(385, 412);
+    place_big_wall(418, 444);
+
+    place_big_wall(256, 348);
+    place_big_wall(288, 348);
+
+    place_big_wall(512, 348);
+    place_big_wall(480, 348);
+
+    place_big_wall(256, 156);
+    place_big_wall(288, 156);
+
+    place_big_wall(512, 156);
+    place_big_wall(480, 156);
 
 }
 

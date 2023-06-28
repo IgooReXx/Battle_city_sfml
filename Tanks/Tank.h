@@ -10,8 +10,8 @@ class Tank;
 #include "../Objects/CollidableObject.h"
 #include "../Bullets/Bullet.h"
 
-#define TANK_WIDTH 31
-#define TANK_HEIGHT 31
+#define TANK_WIDTH 30
+#define TANK_HEIGHT 30
 
 class Tank : public CollidableObject {
 

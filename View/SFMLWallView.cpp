@@ -12,7 +12,7 @@ SFMLWallView::SFMLWallView(GameBoard &b, sf::RenderWindow &w) : board(b), walls(
 void SFMLWallView::load_TxSp()
 {
 
-    if (!wallModel.tx.loadFromFile("../textures/Wall.png", sf::IntRect(0, 0, TANK_WIDTH, TANK_HEIGHT)))
+    if (!wallModel.tx.loadFromFile("../textures/Wall.png", sf::IntRect(0, 0, WALL_WIDTH, WALL_HEIGHT)))
     {
         exit(1);
     }
@@ -30,7 +30,7 @@ void SFMLWallView::display()
 
 void SFMLWallView::draw_object(Wall &wall)
 {
-    wallModel.sp.setOrigin(TANK_WIDTH/2, TANK_HEIGHT/2);
-    wallModel.sp.setPosition(wall.get_objectParam().object.left + TANK_WIDTH/2,wall.get_objectParam().object.top + TANK_HEIGHT/2);
+    wallModel.sp.setOrigin(WALL_WIDTH/2, WALL_HEIGHT/2);
+    wallModel.sp.setPosition(wall.get_objectParam().object.left + WALL_WIDTH/2,wall.get_objectParam().object.top + WALL_HEIGHT/2);
     win.draw(wallModel.sp);
 }
