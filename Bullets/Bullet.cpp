@@ -11,24 +11,9 @@ CollidableObject{bulletCollisions, 0.04, BULLET, BULLET_WIDTH, BULLET_HEIGHT}, b
     set_position(position);
 }
 
-void Bullet::hitObject(CollidableObject object) const
-{
-    object.take_hit();
-}
-
 void Bullet::take_hit()
 {
     set_status_destroyed();
-}
-
-bool Bullet::check_wall_collison(std::vector<Wall>& walls) const
-{
-    for(int indx=0; indx<static_cast<int>(walls.size()); indx++)
-        {
-            if(check_collision(walls[indx]))
-                return true;
-        }
-        return false;
 }
 
 Bullet::~Bullet()

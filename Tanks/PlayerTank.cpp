@@ -16,7 +16,7 @@ void PlayerTank::update() {
     MovableObject::update();
 }
 
-void PlayerTank::on_wall_collision()
+void PlayerTank::on_wall_collision() // If player's tank collides with a wall, its position is set to the previous position
 {
     sf::Vector2f position;
     switch(get_objectParam().facing)
@@ -39,7 +39,7 @@ void PlayerTank::on_wall_collision()
 
 void PlayerTank::shoot()
 {
-    if(reloadClock.getElapsedTime() >= sf::milliseconds(get_reloadTime()))
+    if(reloadClock.getElapsedTime() >= sf::milliseconds(get_reloadTime())) // Check whether player can shoot another bullet
     {
         sf::Vector2f position = choose_bullet_position();
         bullets.push_back(new PlayerBullet(get_objectParam().facing, {position.x, position.y}, PLAYERBULLET));
@@ -50,7 +50,7 @@ void PlayerTank::shoot()
 sf::Vector2f PlayerTank::choose_bullet_position() const
 {
     float centreWidth = get_objectParam().object.left+get_objectParam().object.width/2;
-    float centreHeight= get_objectParam().object.top+get_objectParam().object.height/2;
+    float centreHeight = get_objectParam().object.top+get_objectParam().object.height/2;
     float barrelOffsetWidth = BULLET_WIDTH/2.0f;
     float barrelOffsetHeight = get_objectParam().object.height/2;
     switch (get_objectParam().facing)

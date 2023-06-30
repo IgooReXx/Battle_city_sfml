@@ -12,7 +12,7 @@ MovableObject::MovableObject(float v, Type t, float width, float height)
     objectParam.type = t;
     objectParam.status=ALIVE;
 }
-
+// since every object has to update its position, it's handled by the MovableObject class
 void MovableObject::update()
 {
     switch(objectParam.facing)

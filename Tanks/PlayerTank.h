@@ -11,15 +11,18 @@ class PlayerTank;
 
 class PlayerTank : public Tank{
 
-    sf::Clock reloadClock;
+    sf::Clock reloadClock; // used for determining whether the player can shoot another bullet
 
-    sf::Vector2f choose_bullet_position() const;
+    sf::Vector2f choose_bullet_position() const; // function used for setting a newly shot bullet's position based on current tank position and facing
 
 public:
 
     explicit PlayerTank(std::vector<Bullet*> &bullets);
+
     void update() override;
-    void on_wall_collision();
+
+    void on_wall_collision() override;
+
     void shoot() override;
 
 

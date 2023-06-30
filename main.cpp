@@ -1,3 +1,9 @@
+/*
+ * Plagiat City made using SFML
+ * Font used: Press Start 2P by CodeMan38 https://fonts.google.com/specimen/Press+Start+2P/about
+ * Tank model inspired by: https://pixelartmaker.com/art/3cb4caf82e372fd
+ */
+
 #include <SFML/Graphics.hpp>
 #include "GameBoard.h"
 #include "View/SFMLView.h"

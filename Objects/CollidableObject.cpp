@@ -11,7 +11,7 @@ CollidableObject::CollidableObject(CollisionFlag config, float v, Type t, float 
 bool CollidableObject::check_collision(const CollidableObject &o) const
 {
 
-    switch (o.get_objectParam().type)
+    switch (o.get_objectParam().type)                                   // Check whether collision should occur
     {
         case PLAYERTANK:
             if(!this->objectConfig.hasPlayerTankCollison) return false;
@@ -26,7 +26,7 @@ bool CollidableObject::check_collision(const CollidableObject &o) const
             if(!this->objectConfig.hasBulletCollision) return false;
             break;
     }
-    return this->get_next_objectParam().object.intersects(o.get_next_objectParam().object);
+    return this->get_next_objectParam().object.intersects(o.get_next_objectParam().object); // Check for intersection of two objects after an update
 
 }
 

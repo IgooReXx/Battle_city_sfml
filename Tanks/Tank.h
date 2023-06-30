@@ -13,6 +13,8 @@ class Tank;
 #define TANK_WIDTH 30
 #define TANK_HEIGHT 30
 
+/// Parent class for AITank and PlayerTank
+
 class Tank : public CollidableObject {
 
     int healthPoints;
@@ -25,11 +27,18 @@ protected:
 public:
 
     Tank(CollisionFlag config, int HP, int reloadTime, float velocity, Type type, std::vector<Bullet*> &b);
+
     virtual ~Tank();
-    virtual void shoot();
+
+    virtual void shoot(); // Function allows tanks to shoot a bullet
+
+    virtual void on_wall_collision();
+
     void take_hit() override;
+
+    // Simple getters
     int get_reloadTime() const;
-    int get_HP() const;
+    int get_HP() const; // HP - healthPoints
 };
 
 

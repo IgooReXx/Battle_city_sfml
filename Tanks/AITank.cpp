@@ -38,19 +38,20 @@ void AITank::on_wall_collision()
 
 void AITank::AI_logic()
 {
-    if(movementClock.getElapsedTime() >= sf::milliseconds(rand()%3000+1500))
+    if(movementClock.getElapsedTime() >= sf::milliseconds(rand()%3000+1500)) // Check whether AI should do a turn
     {
         set_random_facing();
         movementClock.restart();
     }
-    if(reloadClock.getElapsedTime() >= sf::milliseconds(get_reloadTime()))
+    if(reloadClock.getElapsedTime() >= sf::milliseconds(get_reloadTime())) // Check whether AI can shoot
     {
         shoot();
         reloadClock.restart();
     }
 }
 
-void AITank::set_random_facing()
+// https://cplusplus.com/reference/algorithm/shuffle/
+void AITank::set_random_facing() // Randomly chooses a direction for AI
 {
     static std::default_random_engine engine(std::chrono::system_clock::now().time_since_epoch().count());
     std::vector<Facing> directions = {UP, DOWN, LEFT, RIGHT};
@@ -89,7 +90,8 @@ TankClass AITank::get_tankClass() const
     return tankClass;
 }
 
-void AITank::update() {
+void AITank::update()
+{
     AI_logic();
     MovableObject::update();
 }

@@ -37,4 +37,9 @@ int Tank::get_HP() const {
     return healthPoints;
 }
 
+void Tank::on_wall_collision()
+{
+
+}
+
 

@@ -10,19 +10,22 @@
 
 #define BULLET_WIDTH 8
 #define BULLET_HEIGHT 8
-
+/// Enum used to differentiate bullets shot by player from bullets shot by AI opponent
 enum BulletClass {AIBULLET, PLAYERBULLET};
 
+/// Parent class to AIBullet and PlayerBullet
 class Bullet : public CollidableObject {
     BulletClass bulletClass;
-    void hitObject(CollidableObject object) const;
-    bool check_wall_collison(std::vector<Wall>& walls) const;
 
 public:
 
     Bullet(CollisionFlag bulletCollisions, Facing facing, sf::Vector2f position, BulletClass bulletClass);
+
     virtual ~Bullet();
+
     void take_hit() override;
+
+    // Simple getter
     BulletClass get_bulletClass() const;
 };
 
