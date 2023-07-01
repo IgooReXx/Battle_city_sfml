@@ -45,7 +45,7 @@ void PlayerTankController::on_movementKeyPressed()
     arrow_key_down();
     arrow_key_left();
     arrow_key_right();
-    playerTank.set_velocity(0.015);
+    playerTank.set_velocity(0.5);
 }
 
 void PlayerTankController::on_movementKeyReleased()

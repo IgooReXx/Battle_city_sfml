@@ -4,7 +4,7 @@
 
 #include "LightTank.h"
 
-LightTank::LightTank(std::vector<Bullet*> &bullets, GameBoard &b) : AITank(1, 700, 0.02, LIGHT, bullets, b)
+LightTank::LightTank(std::vector<Bullet*> &bullets, GameBoard &b) : AITank(1, 700, 0.8, LIGHT, bullets, b)
 {
 
 }

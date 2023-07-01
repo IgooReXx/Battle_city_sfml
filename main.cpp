@@ -14,6 +14,7 @@ int main() {
     srand(time(0));
 
     sf::RenderWindow win(sf::VideoMode(800, 600), "PlagiatCity");
+    win.setFramerateLimit(60);
     GameBoard board;
     SFMLView view(board, win);
     PlayerTankController ctrl(board.get_Player());

@@ -4,7 +4,7 @@
 
 #include "HeavyTank.h"
 
-HeavyTank::HeavyTank(std::vector<Bullet*> &bullets, GameBoard &b) : AITank(5, 1500, 0.005, HEAVY, bullets, b)
+HeavyTank::HeavyTank(std::vector<Bullet*> &bullets, GameBoard &b) : AITank(5, 1500, 0.25, HEAVY, bullets, b)
 {
 
 }
