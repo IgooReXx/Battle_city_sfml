@@ -6,7 +6,7 @@
 #define PLAGIATCITY_SFMLBACKGROUNDVIEW_H
 
 #include "TxSp.h"
-#include "../Gameboard.h"
+#include "../GameBoard.h"
 
 class SFMLBackgroundView {
 

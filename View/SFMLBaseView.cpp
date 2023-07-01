@@ -12,7 +12,7 @@ SFMLBaseView::SFMLBaseView(GameBoard &b, sf::RenderWindow &w) : board(b), base(b
 void SFMLBaseView::load_TxSp()
 {
 
-    if (!baseModel.tx.loadFromFile("../textures/Base.png", sf::IntRect(0, 0, WALL_WIDTH*2, WALL_HEIGHT*2)))
+    if (!baseModel.tx.loadFromFile("../Textures/Base.png", sf::IntRect(0, 0, WALL_WIDTH*2, WALL_HEIGHT*2)))
     {
         exit(1);
     }

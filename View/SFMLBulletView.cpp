@@ -12,7 +12,7 @@ SFMLBulletView::SFMLBulletView(GameBoard &b, sf::RenderWindow &w) : board(b), bu
 void SFMLBulletView::load_TxSp()
 {
 
-    if (!bulletModel.tx.loadFromFile("../textures/Bullet.png", sf::IntRect(0, 0, BULLET_WIDTH, BULLET_HEIGHT)))
+    if (!bulletModel.tx.loadFromFile("../Textures/Bullet.png", sf::IntRect(0, 0, BULLET_WIDTH, BULLET_HEIGHT)))
     {
         exit(1);
     }

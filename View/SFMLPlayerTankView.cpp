@@ -12,7 +12,7 @@ SFMLPlayerTankView::SFMLPlayerTankView(GameBoard &b, sf::RenderWindow &w) : boar
 void SFMLPlayerTankView::load_TxSp()
 {
 
-    if (!playerTankModel.tx.loadFromFile("../textures/PlayerTank.png", sf::IntRect(1, 1, TANK_WIDTH, TANK_HEIGHT)))
+    if (!playerTankModel.tx.loadFromFile("../Textures/PlayerTank.png", sf::IntRect(1, 1, TANK_WIDTH, TANK_HEIGHT)))
     {
         exit(1);
     }

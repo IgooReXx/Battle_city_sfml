@@ -18,7 +18,7 @@ SFMLBackgroundView::SFMLBackgroundView(GameBoard &b, sf::RenderWindow &w) : boar
 void SFMLBackgroundView::load_TxSp()
 {
 
-    if (!background.tx.loadFromFile("../textures/PlagiatCity.png", sf::IntRect(0, 0, MAP_WIDTH, MAP_HEIGHT)))
+    if (!background.tx.loadFromFile("../Textures/PlagiatCity.png", sf::IntRect(0, 0, MAP_WIDTH, MAP_HEIGHT)))
     {
         exit(1);
     }

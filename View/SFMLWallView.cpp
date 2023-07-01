@@ -12,7 +12,7 @@ SFMLWallView::SFMLWallView(GameBoard &b, sf::RenderWindow &w) : board(b), walls(
 void SFMLWallView::load_TxSp()
 {
 
-    if (!wallModel.tx.loadFromFile("../textures/Wall.png", sf::IntRect(0, 0, WALL_WIDTH, WALL_HEIGHT)))
+    if (!wallModel.tx.loadFromFile("../Textures/Wall.png", sf::IntRect(0, 0, WALL_WIDTH, WALL_HEIGHT)))
     {
         exit(1);
     }
