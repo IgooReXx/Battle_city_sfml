@@ -11,15 +11,20 @@
 class SFMLBaseView {
 
        GameBoard &board;
+
        Wall* base;
        TxSp baseModel;
+
        sf::RenderWindow &win;
-       void draw_object(Wall &wall);
-       void load_TxSp();
+
+       void draw_object(Wall &wall); // function which draws base based on its current parameters
+       void load_TxSp(); // function loads all textures and sets them as sprites
+
 public:
 
     SFMLBaseView(GameBoard &b, sf::RenderWindow &w);
-    void display();
+
+    void display(); // displays drawn object
 };
 
 

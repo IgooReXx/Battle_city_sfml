@@ -10,14 +10,21 @@
 
 #include "./Objects/CollidableObject.h"
 
+/// Enum used to differentiate regular walls from player's base
 enum WallClass {REGULAR, BASE};
 
+/// Class handling walls and their behaviour
 class Wall : public CollidableObject {
+
     WallClass wallClass;
+
 public:
     Wall(WallClass wc, sf::Vector2f size);
     virtual ~Wall();
+
     void take_hit() override;
+
+    // Simple getter
     WallClass get_wallClass() const;
 
 };

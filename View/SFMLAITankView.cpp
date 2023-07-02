@@ -44,7 +44,7 @@ void SFMLAITankView::draw_object(AITank* tank)
     TxSp *model = &choose_model(tank);
     model->sp.setOrigin(TANK_WIDTH/2.f, TANK_HEIGHT/2.f);
     model->sp.setRotation(choose_rotation(tank));
-    model->sp.setPosition(tank->get_objectParam().object.left + TANK_WIDTH/2,tank->get_objectParam().object.top + TANK_HEIGHT/2);
+    model->sp.setPosition(tank->get_objectParam().object.left + TANK_WIDTH/2.f,tank->get_objectParam().object.top + TANK_HEIGHT/2.f);
     win.draw(model->sp);
 }
 

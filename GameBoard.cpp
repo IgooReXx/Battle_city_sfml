@@ -92,7 +92,7 @@ void GameBoard::collision_logic()
 {
     player_collisions();
     AITanks_collisions();
-    bullets_collision();
+    bullets_collisions();
 }
 
 void GameBoard::player_collisions()
@@ -148,7 +148,7 @@ void GameBoard::AITanks_collisions()
     }
 }
 
-void GameBoard::bullets_collision()
+void GameBoard::bullets_collisions()
 {
     for(int bulletIndx=0; bulletIndx < static_cast<int>(bullets.size()); ++bulletIndx)
     {

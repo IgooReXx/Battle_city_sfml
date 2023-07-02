@@ -14,19 +14,18 @@ class SFMLBulletView {
     GameBoard &board;
 
     std::vector<Bullet*> &bullets;
-
     TxSp bulletModel;
 
     sf::RenderWindow &win;
 
-    void draw_object(Bullet* bullet);
-    void load_TxSp();
-    int choose_rotation(Bullet* bullet);
+    void draw_object(Bullet* bullet); // function which draws bullets based on their current parameters
+    void load_TxSp(); // function loads all textures and sets them as sprites
+    int choose_rotation(Bullet* bullet); // returns an angle at which bullets should be drawn based on their current facing
 
 public:
     SFMLBulletView(GameBoard &b, sf::RenderWindow &w);
 
-    void display();
+    void display(); // displays drawn object
 };
 
 

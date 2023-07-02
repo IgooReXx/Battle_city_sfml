@@ -15,13 +15,13 @@ class SFMLWallView {
     TxSp wallModel;
     sf::RenderWindow &win;
 
-    void draw_object(Wall &wall);
-    void load_TxSp();
+    void draw_object(Wall &wall); // function which draws walls based on their current parameters
+    void load_TxSp(); // function loads all textures and sets them as sprites
 
 public:
     SFMLWallView(GameBoard &b, sf::RenderWindow &w);
 
-    void display();
+    void display(); // displays drawn object
 };
 
 

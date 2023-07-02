@@ -22,7 +22,10 @@ class SFMLMenuView {
 public:
 
     SFMLMenuView(sf::RenderWindow &win);
-    void display();
+
+    void display(); // displays drawn object
+
+    //Simple getter:
     sf::FloatRect get_playButton();
 };
 

@@ -18,6 +18,7 @@
 #include "SFMLMenuView.h"
 #include "SFMLGameOverView.h"
 
+/// Class handles display of every object on the map each object has its own subclass which is responsible for drawing that object
 class SFMLView {
 
     GameBoard &board;
@@ -33,7 +34,11 @@ class SFMLView {
 
 public:
     explicit SFMLView(GameBoard &b, sf::RenderWindow &win);
+
+    // function calls all display functions in View subclasses
     void draw();
+
+    // Simple getter
     SFMLMenuView &get_menuView();
 };
 

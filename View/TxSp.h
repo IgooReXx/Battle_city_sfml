@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 
+/// Struct responsible for textures and sprites used in View classes
 struct TxSp {
     sf::Texture tx;
     sf::Sprite sp;

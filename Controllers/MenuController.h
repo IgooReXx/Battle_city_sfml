@@ -12,12 +12,12 @@ class MenuController {
     GameBoard &board;
     SFMLMenuView &view;
 
-    bool mouse_is_within_button(float mouseXPos, float mouseYPos, sf::FloatRect button);
+    bool mouse_is_within_button(float mouseXPos, float mouseYPos, sf::FloatRect button); // function returns true if mouse is within the "play" button
 
 public:
     MenuController(GameBoard &board, SFMLMenuView &view);
 
-    void menuControls(sf::Event &event);
+    void menuControls(sf::Event &event); // function allowing player to navigate the menu and handling menu logic
 };
 
 

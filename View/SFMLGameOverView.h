@@ -14,8 +14,8 @@ class SFMLGameOverView {
 
 public:
     SFMLGameOverView(sf::RenderWindow &w);
-    void display_lost();
-    void display_won();
+    void display_lost(); // displays "game over" screen
+    void display_won(); // displays "game won" screen
 
 };
 
