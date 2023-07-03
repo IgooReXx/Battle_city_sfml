@@ -6,8 +6,8 @@
 #define PLAGIATCITY_SFMLWALLVIEW_H
 
 
-#include "../GameBoard.h"
-#include "TxSp.h"
+#include "../../GameBoard.h"
+#include "../TxSp.h"
 
 class SFMLWallView {
     GameBoard &board;

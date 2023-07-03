@@ -6,7 +6,7 @@
 #define PLAGIATCITY_MENUCONTROLLER_H
 
 #include "../GameBoard.h"
-#include "../View/SFMLMenuView.h"
+#include "../View/Misc/SFMLMenuView.h"
 
 class MenuController {
     GameBoard &board;

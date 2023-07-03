@@ -5,8 +5,8 @@
 #ifndef PLAGIATCITY_SFMLBACKGROUNDVIEW_H
 #define PLAGIATCITY_SFMLBACKGROUNDVIEW_H
 
-#include "TxSp.h"
-#include "../GameBoard.h"
+#include "../TxSp.h"
+#include "../../GameBoard.h"
 
 class SFMLBackgroundView {
 

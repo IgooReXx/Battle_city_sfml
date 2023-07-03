@@ -5,9 +5,9 @@
 #ifndef PLAGIATCITY_SFMLPLAYERTANKVIEW_H
 #define PLAGIATCITY_SFMLPLAYERTANKVIEW_H
 
-#include "../Tanks/PlayerTank.h"
-#include "../GameBoard.h"
-#include "TxSp.h"
+#include "../../Tanks/PlayerTank.h"
+#include "../../GameBoard.h"
+#include "../TxSp.h"
 
 class SFMLPlayerTankView {
     GameBoard &board;

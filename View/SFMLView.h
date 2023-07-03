@@ -9,14 +9,18 @@
 
 #include "../GameBoard.h"
 
-#include "SFMLAITankView.h"
-#include "SFMLPlayerTankView.h"
-#include "SFMLBulletView.h"
-#include "SFMLWallView.h"
-#include "SFMLBaseView.h"
-#include "SFMLBackgroundView.h"
-#include "SFMLMenuView.h"
-#include "SFMLGameOverView.h"
+#include "Tanks/SFMLAITankView.h"
+#include "Tanks/SFMLPlayerTankView.h"
+
+#include "Bullets/SFMLBulletView.h"
+
+#include "Walls/SFMLWallView.h"
+#include "Walls/SFMLBaseView.h"
+#include "Walls/SFMLBonusHPView.h"
+
+#include "Misc/SFMLBackgroundView.h"
+#include "Misc/SFMLMenuView.h"
+#include "Misc/SFMLGameOverView.h"
 
 /// Class handles display of every object on the map each object has its own subclass which is responsible for drawing that object
 class SFMLView {
@@ -25,9 +29,13 @@ class SFMLView {
 
     SFMLAITankView AITankView;
     SFMLPlayerTankView playerTankView;
+
     SFMLBulletView bulletView;
+
     SFMLWallView wallView;
     SFMLBaseView baseView;
+    SFMLBonusHPView bonusHpView;
+
     SFMLBackgroundView backgroundView;
     SFMLMenuView menuView;
     SFMLGameOverView gameOverView;

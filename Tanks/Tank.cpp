@@ -42,4 +42,9 @@ void Tank::on_wall_collision()
 
 }
 
+void Tank::heal()
+{
+    healthPoints++;
+}
+
 

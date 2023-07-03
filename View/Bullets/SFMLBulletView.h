@@ -5,9 +5,9 @@
 #ifndef PLAGIATCITY_SFMLBULLETVIEW_H
 #define PLAGIATCITY_SFMLBULLETVIEW_H
 
-#include "../Bullets/Bullet.h"
-#include "../GameBoard.h"
-#include "TxSp.h"
+#include "../../Bullets/Bullet.h"
+#include "../../GameBoard.h"
+#include "../TxSp.h"
 
 
 class SFMLBulletView {

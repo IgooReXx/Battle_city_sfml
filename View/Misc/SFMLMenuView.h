@@ -5,7 +5,7 @@
 #ifndef PLAGIATCITY_SFMLMENUVIEW_H
 #define PLAGIATCITY_SFMLMENUVIEW_H
 
-#include "TxSp.h"
+#include "../TxSp.h"
 
 #define BUTTON_LEFT 250
 #define BUTTON_TOP 300

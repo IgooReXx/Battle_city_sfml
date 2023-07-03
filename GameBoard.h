@@ -15,8 +15,10 @@ class GameBoard; // Loop include'ów rozwiązany z pomocą kolegi
 #include "./Bullets/AIBullet.h"
 #include "./Bullets/PlayerBullet.h"
 
-#include "Wall.h"
-#include "Base.h"
+#include "Walls/Wall.h"
+#include "Walls/Base.h"
+#include "Walls/PickUp.h"
+
 /// Enum of the game status
 enum GameStatus {WON, LOST, RUNNING, MENU};
 
@@ -35,6 +37,8 @@ class GameBoard {
 
     std::vector<Wall*> walls = {}; // vector of all regular walls
     Wall* base;                    // pointer to player's base
+    PickUp* bonusHP;                // wall-like pick up
+    bool bonusPickedUp;
 
     void bullets_cleanup();         //
     void AITanks_cleanup();         // functions handling deletion of unused objects after they've been destroyed
@@ -52,6 +56,7 @@ class GameBoard {
     void place_walls();                                 //
     void place_small_wall(float x_pos, float y_pos);    // functions handling placement of walls on the map
     void place_big_wall(float x_pos, float y_pos);      //
+    void spawn_bonusHP();
 
     void spawn_AITanks();           // function spawning AI opponents based on spawnCounter and spawnTimer
 
@@ -72,6 +77,8 @@ public:
     std::vector<Wall*> &get_Walls();
     GameStatus get_status() const;
     Wall* get_base();
+    PickUp* get_bonusHP();
+    bool get_bonusPickedUp() const;
 
 };
 

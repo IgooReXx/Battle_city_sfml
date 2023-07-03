@@ -8,7 +8,7 @@
 #include "./Tanks/AITanks/MediumTank.h"
 #include "./Tanks/AITanks/HeavyTank.h"
 
-GameBoard::GameBoard() : status(MENU), player(bullets)
+GameBoard::GameBoard() : status(MENU), player(bullets), bonusHP(nullptr), bonusPickedUp(false)
 {
     player.set_position({384, 380});
     spawnCounter=0;
@@ -33,6 +33,7 @@ std::vector<AITank*> &GameBoard::get_AITanks()
 
 void GameBoard::update()
 {
+    spawn_bonusHP();
     spawn_AITanks();
     collision_logic();
     for(int indx=0; indx<static_cast<int>(AITanks.size()); indx++)
@@ -117,6 +118,16 @@ void GameBoard::player_collisions()
     if(player.check_collision(*base))
     {
         player.on_wall_collision();
+    }
+    if(bonusHP != nullptr)
+    {
+        if(player.check_collision(*bonusHP))
+        {
+            delete bonusHP;
+            bonusHP = nullptr;
+            bonusPickedUp = true;
+            player.heal();
+        }
     }
 }
 
@@ -283,4 +294,27 @@ void GameBoard::garbage_collector()
 void GameBoard::set_status_RUNNING()
 {
     status = RUNNING;
+}
+
+void GameBoard::spawn_bonusHP()
+{
+    if(bonusPickedUp)
+        return;
+    if(bonusHP == nullptr)
+    {
+        if(player.get_HP() < 5)
+        {
+            bonusHP = new PickUp();
+            bonusHP->set_position({384, 380});
+        }
+    }
+}
+
+PickUp* GameBoard::get_bonusHP()
+{
+    return bonusHP;
+}
+
+bool GameBoard::get_bonusPickedUp() const {
+    return bonusPickedUp;
 }

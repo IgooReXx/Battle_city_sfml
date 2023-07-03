@@ -5,7 +5,7 @@
 #ifndef PLAGIATCITY_SFMLGAMEOVERVIEW_H
 #define PLAGIATCITY_SFMLGAMEOVERVIEW_H
 
-#include "TxSp.h"
+#include "../TxSp.h"
 
 class SFMLGameOverView {
     sf::RenderWindow &win;

@@ -35,6 +35,7 @@ public:
     virtual void on_wall_collision();
 
     void take_hit() override;
+    void heal();
 
     // Simple getters
     int get_reloadTime() const;

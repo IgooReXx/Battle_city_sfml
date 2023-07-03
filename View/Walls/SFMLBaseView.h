@@ -5,8 +5,8 @@
 #ifndef PLAGIATCITY_SFMLBASEVIEW_H
 #define PLAGIATCITY_SFMLBASEVIEW_H
 
-#include "../GameBoard.h"
-#include "TxSp.h"
+#include "../../GameBoard.h"
+#include "../TxSp.h"
 
 class SFMLBaseView {
 

@@ -6,7 +6,7 @@
 #define PLAGIATCITY_BULLET_H
 
 #include "../Objects/CollidableObject.h"
-#include "../Wall.h"
+#include "../Walls/Wall.h"
 
 #define BULLET_WIDTH 8
 #define BULLET_HEIGHT 8

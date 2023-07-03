@@ -7,7 +7,7 @@
 SFMLView::SFMLView(GameBoard &b, sf::RenderWindow &win): board(b),
 AITankView(b, win), playerTankView(b, win),
 bulletView(b, win),
-wallView(b, win), baseView(b, win),
+wallView(b, win), baseView(b, win), bonusHpView(b, win),
 backgroundView(b, win),
 menuView(win), gameOverView(win)
 {
@@ -28,6 +28,7 @@ void SFMLView::draw()
     bulletView.display();
     wallView.display();
     baseView.display();
+    bonusHpView.display();
     }
     if(board.get_status() == LOST)
         gameOverView.display_lost();

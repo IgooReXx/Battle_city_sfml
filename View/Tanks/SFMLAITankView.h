@@ -5,9 +5,9 @@
 #ifndef PLAGIATCITY_SFMLAITANKVIEW_H
 #define PLAGIATCITY_SFMLAITANKVIEW_H
 
-#include "../Tanks/AITank.h"
-#include "../GameBoard.h"
-#include "TxSp.h"
+#include "../../Tanks/AITank.h"
+#include "../../GameBoard.h"
+#include "../TxSp.h"
 
 class SFMLAITankView {
     GameBoard &board;

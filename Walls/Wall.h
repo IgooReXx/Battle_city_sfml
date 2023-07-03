@@ -8,7 +8,7 @@
 #define WALL_WIDTH 16
 #define WALL_HEIGHT 16
 
-#include "./Objects/CollidableObject.h"
+#include "../Objects/CollidableObject.h"
 
 /// Enum used to differentiate regular walls from player's base
 enum WallClass {REGULAR, BASE};
